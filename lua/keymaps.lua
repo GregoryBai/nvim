@@ -11,7 +11,7 @@ vim.g.maplocalleader = " "
 
 -- --->>> LSP: lua/lsp.lua
 --> Formatting
-keymap("n", "<leader>F", ":Format<CR>", opts)
+keymap("n", "<leader>f", ":Format<CR>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -24,10 +24,11 @@ keymap("n", "<leader>F", ":Format<CR>", opts)
 -- Normal --
 --
 -- keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
-keymap("n", "<leader>s", ":Format <bar> w<CR>", { noremap = true, silent = false })
-keymap("n", "<leader>w", ":Format <bar> w <bar> BufferClose!<CR>", opts)
--- keymap("n", "<leader>w", ":Bdelete! %d<CR>", opts)
--- keymap("n", "<leader>w", ":wq<CR>", { noremap = true, silent = false })
+-- keymap("n", "<leader>s", ":w <CR>", { noremap = true, silent = false })
+keymap("n", "<leader>s", ":w<CR>", { noremap = true, silent = false })
+keymap("n", "<leader>w", ":w <bar> BufferClose! <CR>", opts)
+-- keymap("n", "<leader>s", ":Format | w <CR>", { noremap = true, silent = false })
+-- keymap("n", "<leader>w", ":Format | w | BufferClose!<CR>", opts)
 
 -- Telescope --
 --
@@ -72,8 +73,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter

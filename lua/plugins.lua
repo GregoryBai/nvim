@@ -126,6 +126,12 @@ return packer.startup(function(use)
 			require("config.dashboard")
 		end,
 	})
+	use({
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("config.toggleterm")
+		end,
+	})
 	-- use {
 	--   'noib3/nvim-cokeline',
 	--   requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
