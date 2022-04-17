@@ -44,10 +44,23 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("config.nvim-notify")
+		end,
+	})
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("vim-airline/vim-airline")
+	-- use("vim-airline/vim-airline")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("config.lualine")
+		end,
+	})
 	use("tpope/vim-surround")
 	use({
 		-- "tpope/vim-commentary",
@@ -59,15 +72,26 @@ return packer.startup(function(use)
 	})
 	-- use "ap/vim-css-color" -- CSS Color Preview
 	use("terryma/vim-multiple-cursors")
+
+	-- use({
+	-- 	"ggandor/lightspeed.nvim",
+	-- 	config = function()
+	-- 		require("config.lightspeed")
+	-- 	end,
+	-- })
+
+	use({
+		"kosayoda/nvim-lightbulb",
+		config = function()
+			require("config.nvim-lightbulb")
+		end,
+	})
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("config.nvim-autopairs")
 		end,
 	})
-	--use "rstacruz/vim-closer"
-	-- use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview' } --? NOT_WORKING
-	-- use "glepnir/dashboard-nvim"
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -77,6 +101,19 @@ return packer.startup(function(use)
 			require("config.nvim-tree")
 		end,
 	})
+	--
+	-- use({
+	-- 	"ms-jpq/chadtree",
+	-- 	requires = {
+	-- 		"kyazdani42/nvim-web-devicons", -- optional, for file icon
+	-- 	},
+	-- 	run = "python3 -m chadtree deps",
+	-- 	--> You will have to run :CHADdeps when installing / updating. This will install CHADTree's dependencies locally inside chadtree/.vars/runtime.
+	-- 	branch = "chad",
+	-- 	config = function()
+	-- 		require("config.chadtree")
+	-- 	end,
+	-- })
 
 	--> Telescope <--
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) --> telescope requirement for faster search
@@ -106,12 +143,23 @@ return packer.startup(function(use)
 			require("config.vim-hexokinase")
 		end,
 	})
+	-- use({
+	-- 	"romgrk/barbar.nvim",
+	-- 	requires = { "kyazdani42/nvim-web-devicons" },
+	-- 	config = function()
+	-- 		require("config.barbar")
+	-- 	end,
+	-- })
 	use({
-		"romgrk/barbar.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
+		"kdheepak/tabline.nvim",
+		commit = "bbaf9a97b24ae2d4f0c7d8751d5f28aa45332480",
+		requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
 		config = function()
-			require("config.barbar")
+			require("config.tabline")
 		end,
+	})
+	use({
+		"moll/vim-bbye",
 	})
 	use("lukelbd/vim-toggle")
 	use({
@@ -132,6 +180,22 @@ return packer.startup(function(use)
 			require("config.toggleterm")
 		end,
 	})
+	-- use({
+	-- 	"luukvbaal/stabilize.nvim", --> visual bugs for nvim-tree
+	-- 	config = function()
+	-- 		require("config.stabilize")
+	-- 	end,
+	-- })
+
+	--> DAP
+	-- use({
+	-- 	"rcarriga/nvim-dap-ui",
+	-- 	requires = { "mfussenegger/nvim-dap" },
+	-- 	config = function()
+	-- 		require("config.nvim-dap-ui")
+	-- 	end,
+	-- })
+
 	-- use {
 	--   'noib3/nvim-cokeline',
 	--   requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
@@ -182,10 +246,19 @@ return packer.startup(function(use)
 			require("config.null-ls")
 		end,
 	})
+	use({
+		"jose-elias-alvarez/nvim-lsp-ts-utils",
+	})
 
 	-- ==> Color-Schemes
-	use("xiyaowong/nvim-transparent")
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("config.nvim-transparent")
+		end,
+	})
 
+	use("matsuuu/pinkmare")
 	use("liuchengxu/space-vim-dark")
 	use("fcpg/vim-farout")
 	use("sainnhe/gruvbox-material")

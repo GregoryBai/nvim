@@ -311,10 +311,11 @@ ntree.setup({
 	},
 })
 
-local events = require("nvim-tree.events")
+--> RECOLORING / HIGHLIGHTS
 
-events["on_nvim_tree_ready"](function(_)
-	-- vim.notify()
-	-- vim.cmd "Dashboard | NvimTreeClose | NvimTreeOpen"
-	-- vim.cmd "Dashboard"
-end)
+-- vim.cmd("hi NvimTreeFolderIcon guifg=#ffb347")
+-- vim.cmd("hi NvimTreeFolderIcon guifg=#472541")
+vim.cmd("hi NvimTreeFolderIcon guifg=#2d2f42")
+vim.cmd("hi NvimTreeFolderName guifg=#f2448b")
+vim.cmd("hi NvimTreeOpenedFolderName guifg=#f2448b")
+vim.cmd("hi NvimTreeEmptyFolderName guifg=#f2448b")
