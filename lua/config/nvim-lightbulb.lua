@@ -1,17 +1,22 @@
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+
+--   
+local icon = "^"
+
 -- Showing defaults
 require("nvim-lightbulb").setup({
 	-- LSP client names to ignore
 	-- Example: {"sumneko_lua", "null-ls"}
 	ignore = {},
 	sign = {
-		enabled = true,
+		enabled = false,
 		-- Priority of the gutter sign
-		priority = 10,
+		priority = 1000,
 	},
 	float = {
 		enabled = false,
 		-- Text to show in the popup float
-		text = "💡",
+		text = icon,
 		-- Available keys for window options:
 		-- - height     of floating window
 		-- - width      of floating window
@@ -29,16 +34,16 @@ require("nvim-lightbulb").setup({
 		win_opts = {},
 	},
 	virtual_text = {
-		enabled = false,
+		enabled = true,
 		-- Text to show at virtual text
-		text = "💡",
+		text = icon,
 		-- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
-		hl_mode = "replace",
+		hl_mode = "combine",
 	},
 	status_text = {
 		enabled = false,
 		-- Text to provide when code actions are available
-		text = "💡",
+		text = icon,
 		-- Text to provide when no actions are available
 		text_unavailable = "",
 	},

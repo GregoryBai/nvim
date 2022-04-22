@@ -61,6 +61,18 @@ return packer.startup(function(use)
 			require("config.lualine")
 		end,
 	})
+	-- use({
+	-- 	"edluffy/specs.nvim",
+	-- 	config = function()
+	-- 		require("config.specs")
+	-- 	end,
+	-- })
+	use({
+		"Pocco81/TrueZen.nvim",
+		config = function()
+			require("config.true-zen")
+		end,
+	})
 	use("tpope/vim-surround")
 	use({
 		-- "tpope/vim-commentary",
@@ -136,6 +148,13 @@ return packer.startup(function(use)
 		end,
 	})
 	use("p00f/nvim-ts-rainbow")
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("config.todo-comments")
+		end,
+	})
 	use({
 		"RRethy/vim-hexokinase",
 		run = "make hexokinase",
@@ -231,8 +250,8 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
 			use("L3MON4D3/LuaSnip"), --> Snippet Engine
-			-- use "saadparwaiz1/cmp_luasnip",
-			-- use "rafamadriz/friendly-snippets",
+			use("saadparwaiz1/cmp_luasnip"),
+			use("rafamadriz/friendly-snippets"),
 		},
 		config = function()
 			require("config.cmp")
@@ -247,10 +266,23 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+		config = function()
+			require("config.nvim-code-action-menu")
+		end,
+	})
+	use({
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
 	})
 
 	-- ==> Color-Schemes
+	use({
+		"EdenEast/nightfox.nvim",
+		config = function()
+			require("config.nightfox")
+		end,
+	})
 	use({
 		"xiyaowong/nvim-transparent",
 		config = function()

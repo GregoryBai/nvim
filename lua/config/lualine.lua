@@ -6,7 +6,7 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
 		always_divide_middle = true,
-		globalstatus = false,
+		globalstatus = true,
 	},
 	sections = {
 		lualine_a = { "mode" },
@@ -27,3 +27,5 @@ require("lualine").setup({
 	tabline = {},
 	extensions = { "nvim-tree", "toggleterm" },
 })
+
+vim.opt.laststatus = 0

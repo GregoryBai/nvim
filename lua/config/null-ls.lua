@@ -25,6 +25,9 @@ null_ls.setup({
 		-- formatting.eslint_d,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
+
+		--> GitSigns integration
+		-- null_ls.builtins.code_actions.gitsigns,
 	},
 
 	--> Format on Save <-> Auto-Formatting
